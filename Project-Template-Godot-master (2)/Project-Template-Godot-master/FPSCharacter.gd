@@ -1,14 +1,16 @@
 extends KinematicBody
 
+var Bullet = preload("res://Bullet.tscn")
 onready var camera = $Pivot/Camera
 
-var gravity = -30
-var jump_speed = 12
+var gravity = -20
+var jump_speed = 6
 var max_speed = 5
 var mouse_sensitivity = 0.002 # radians/pixel
 
 var velocity = Vector3()
 var jump = false
+
 
 func get_input():
 	jump = false
@@ -33,7 +35,13 @@ func _unhandled_input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$Pivot.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
-	
+	if event.is_action_pressed("shoot"):
+		var b = Bullet.instance()
+		b.start($Position3D.global_transform)
+		get_parent().add_child(b)
+		
+
+		
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	var desired_velocity = get_input() * max_speed
