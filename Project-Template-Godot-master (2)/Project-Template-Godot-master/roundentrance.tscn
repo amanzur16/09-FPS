@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="CSGCombiner" type="CSGCombiner"]
+
+[node name="CSGBox" type="CSGBox" parent="."]
+width = 0.5
+height = 5.0
+depth = 10.0
+
+[node name="CSGCylinder" type="CSGCylinder" parent="CSGBox"]
+transform = Transform( 0.0349344, -0.99939, 0, 0.99939, 0.0349344, 0, 0, 0, 1, -0.0365715, -2.28356, 0.0238676 )
+operation = 2
+radius = 2.10096
+height = 6.35792
+sides = 20

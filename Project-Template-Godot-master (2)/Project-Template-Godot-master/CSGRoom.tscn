@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://CSGRoom.gd" type="Script" id=1]
+[ext_resource path="res://Character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://roundentrance.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Ledge.tscn" type="PackedScene" id=5]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0.352941, 0, 1 )
+
+[node name="CSGRoom" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Room" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+use_collision = true
+invert_faces = true
+width = 20.0
+height = 5.0
+depth = 25.0
+material = SubResource( 1 )
+
+[node name="Character" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.977811, 0 )
+
+[node name="Wall" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.0101229, 0, -0.999949, 0, 1, 0, 0.999949, 0, -0.0101229, -4.94592, 2.9941, -4.9413 )
+
+[node name="Wall3" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.0101229, 0, -0.999949, 0, 1, 0, 0.999949, 0, -0.0101229, 4.98323, 2.98696, -4.83055 )
+
+[node name="Wall2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.999949, 0, -0.0101228, 0, 1, 0, 0.0101228, 0, 0.999949, -0.150917, 3.06021, -0.0922196 )
+
+[node name="CSGCombiner" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.0172954, 0, 0.99985, 0, 1, 0, -0.99985, 0, 0.0172954, -4.97751, 3.04726, 5.05384 )
+
+[node name="Ledge" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9288, 3.7673, -7.75996 )
