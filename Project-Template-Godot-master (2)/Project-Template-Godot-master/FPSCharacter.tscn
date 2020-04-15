@@ -7,7 +7,9 @@
 radius = 0.3
 height = 0.3
 
-[node name="FPSCharacter" type="KinematicBody"]
+[node name="FPSCharacter" type="KinematicBody" groups=[
+"Player",
+]]
 collision_layer = 2
 script = ExtResource( 1 )
 
