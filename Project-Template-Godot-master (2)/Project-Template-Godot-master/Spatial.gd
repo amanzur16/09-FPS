@@ -1,6 +1,9 @@
 extends Spatial
+var score = 0
+
 
 func _ready():
+		
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _input(event):
@@ -10,3 +13,6 @@ func _input(event):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			get_tree().set_input_as_handled()
+
+
+

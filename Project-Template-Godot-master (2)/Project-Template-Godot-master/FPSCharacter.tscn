@@ -13,6 +13,9 @@ height = 0.3
 collision_layer = 2
 script = ExtResource( 1 )
 
+[node name="Position3D" type="Position3D" parent="."]
+transform = Transform( 0.984377, 0, 0.176071, 0, 1, 0, -0.176071, 0, 0.984377, 0.081049, 0.227254, -0.70397 )
+
 [node name="Body" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
 shape = SubResource( 1 )
@@ -23,8 +26,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681205, 0 )
 [node name="Camera" type="Camera" parent="Pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.330804, 0 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Pivot"]
-transform = Transform( -7.89033, 0, -1.32011, 0, 8, 0, 1.32011, 0, -7.89033, 0.144019, -0.502907, 0.033143 )
+[node name="Gun" type="MeshInstance" parent="Pivot"]
+transform = Transform( -7.89033, 0, -1.32011, 0, 8, 0, 1.32011, 0, -7.89033, 0.144019, -0.502907, -0.322024 )
 mesh = ExtResource( 2 )
 material/0 = null
 material/1 = null
@@ -70,6 +73,3 @@ material/40 = null
 material/41 = null
 material/42 = null
 material/43 = null
-
-[node name="Position3D" type="Position3D" parent="."]
-transform = Transform( 0.984377, 0, 0.176071, 0, 1, 0, -0.176071, 0, 0.984377, 0.081049, 0.227254, -0.377423 )

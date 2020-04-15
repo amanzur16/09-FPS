@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://beon/Beon/Beon-Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Win_button.gd" type="Script" id=2]
+[ext_resource path="res://Exit Button.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.631373, 0.647059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect"]
+anchor_right = 1.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+text = "YOU WIN!"
+align = 1
+valign = 1
+
+[node name="Win_button" type="Button" parent="ColorRect"]
+margin_left = 375.0
+margin_top = 134.0
+margin_right = 666.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0.560784, 1 )
+text = "Play Again"
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit Button" type="Button" parent="ColorRect"]
+margin_left = 374.0
+margin_top = 224.0
+margin_right = 665.0
+margin_bottom = 290.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.631373, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0.560784, 1 )
+text = "Exit"
+flat = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ColorRect/Win_button" to="ColorRect/Win_button" method="_on_Win_button_pressed"]
+[connection signal="pressed" from="ColorRect/Exit Button" to="ColorRect/Exit Button" method="_on_Exit_Button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://platform objects/blockLarge.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Spatial.gd" type="Script" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Emeny.tscn" type="PackedScene" id=6]
 [ext_resource path="res://CoinGold.tscn" type="PackedScene" id=7]
 [ext_resource path="res://tree.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Counter.gd" type="Script" id=9]
+[ext_resource path="res://beon/Beon/Beon-Regular.otf" type="DynamicFontData" id=10]
+[ext_resource path="res://flowers.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.188235, 0.384314, 0.12549, 1 )
@@ -19,13 +22,23 @@ size = Vector2( 25, 25 )
 [sub_resource type="ConvexPolygonShape" id=3]
 points = PoolVector3Array( -12.5683, 0.068306, -12.5683, -12.5683, 0.068306, 12.5683, 12.5683, 0.068306, -12.5683, 12.5683, 0.068306, 12.5683 )
 
-[node name="Spatial" type="Spatial"]
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 10 )
+
+[sub_resource type="CapsuleShape" id=6]
+radius = 1.16821
+height = 0.884815
+
+[node name="Game" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="ground" type="StaticBody" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="ground"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.229074, -0.0423239, -0.535501 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114121, 0.0150401, -0.52504 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -64,55 +77,346 @@ transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 3.04449, -0.0347611, 2.947
 [node name="blockHexagon3" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98558, -0.0266242, 1.50227 )
 
-[node name="tree" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.14782, -0.0417936, -9.51365 )
-
-[node name="tree2" parent="tree" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0322, 0, 0 )
-
-[node name="tree5" parent="tree" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91972, 0, 0 )
-
-[node name="tree6" parent="tree" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82844, 0, 7.07009 )
-
-[node name="tree7" parent="tree" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76199, 0, 9.14181 )
-
-[node name="tree3" parent="tree" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68622, 0, 11.1028 )
-
-[node name="tree4" parent="tree" instance=ExtResource( 8 )]
-
-[node name="CoinGold" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -9.28903, 0.233369, -0.0015105 )
-
-[node name="CoinGold7" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 6.93886, 2.9511, -1.36784 )
-
-[node name="CoinGold8" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -9.57579, 0.229697, -1.85735 )
-
-[node name="CoinGold2" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 10.8582, 1.14872, 0.603513 )
-
-[node name="CoinGold3" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 9.61588, 1.93706, -1.41714 )
-
-[node name="CoinGold4" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 4.22904, 1.48498, 4.01599 )
-
-[node name="CoinGold9" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 3.3058, 1.18954, 1.33841 )
-
-[node name="CoinGold5" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 10.8513, 1.45108, 0 )
-
-[node name="CoinGold6" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 10.8372, 1.66931, -0.750187 )
-
-[node name="FPSCharacter" parent="." instance=ExtResource( 5 )]
+[node name="007" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.401736, 9.94706 )
 
-[node name="Enemy" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.660299, 0 )
+[node name="Coins" type="Spatial" parent="."]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -9.28903, 0.233369, -0.00151062 )
+
+[node name="CoinGold" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8254, 1.0032, -0.910763 )
+
+[node name="CoinGold2" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3041, 2.01285, 1.48885 )
+
+[node name="CoinGold3" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9806, 1.2802, -0.172685 )
+
+[node name="CoinGold4" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9172, 1.66316, 1.26835 )
+
+[node name="CoinGold5" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1181, 1.08316, 1.28394 )
+
+[node name="CoinGold6" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5526, 1.02626, -1.3731 )
+
+[node name="CoinGold7" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7118, 0.952013, -4.09883 )
+
+[node name="CoinGold8" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71681, 0.0734749, 9.73966 )
+
+[node name="CoinGold9" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44392, 0.33499, 9.30569 )
+
+[node name="CoinGold10" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294044, 0.33499, 1.95597 )
+
+[node name="CoinGold11" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.465604, 0.150941, 7.504 )
+
+[node name="CoinGold12" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108719, 0.33499, -0.0679754 )
+
+[node name="CoinGold13" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0908213, 0.150093, 6.97179 )
+
+[node name="CoinGold14" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.480975, 0.123528, 6.48079 )
+
+[node name="CoinGold15" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 0.999898, 0, 0.0143112, 0, 1, 0, -0.0143112, 0, 0.999898, -0.868834, 0.160317, 6.96816 )
+
+[node name="CoinGold16" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48551, 0.33499, 7.07049 )
+
+[node name="CoinGold17" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.93569, 0.33499, 6.23212 )
+
+[node name="CoinGold18" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.846, 0.33499, 5.14692 )
+
+[node name="CoinGold19" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03604, 0.604497, -10.6538 )
+
+[node name="CoinGold20" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03604, 0.0956426, -9.57925 )
+
+[node name="CoinGold21" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500653, 0.0933917, -8.94228 )
+
+[node name="CoinGold22" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0316105, 0.0933917, -9.61688 )
+
+[node name="CoinGold23" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0994415, 0.0933917, -8.29505 )
+
+[node name="CoinGold24" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05246, 0.0933917, -8.29505 )
+
+[node name="CoinGold25" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68883, 0.0933917, -8.29505 )
+
+[node name="CoinGold26" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68883, 0.0933917, -9.05746 )
+
+[node name="CoinGold27" parent="Coins" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68883, 0.0933917, -9.75774 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_top = -1.0
+margin_right = 78.0
+margin_bottom = 17.0
+color = Color( 0, 0, 0, 0.411765 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_right = 95.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.796078, 0, 1 )
+text = "Points:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Counter" type="Label" parent="Control"]
+margin_left = 62.0
+margin_top = -1.0
+margin_right = 187.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 0.796078, 0, 1 )
+text = "Q"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Control/Counter"]
+
+[node name="Enemies" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.823141, 0 )
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 0.485929, 0, -0.117783, 0, 0.5, 0, 0.117783, 0, 0.485929, 1.67278, 0, 0.454449 )
+
+[node name="Area3" type="Area" parent="Enemies/Enemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0377195, -0.0611622, 0.00567894 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Enemies/Enemy/Area3"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.0577947, 0, -0.0435024 )
+shape = SubResource( 6 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 0.122442, 0, 0.484776, 0, 0.5, 0, -0.484776, 0, 0.122442, -9.01981, 0, 5.28421 )
+
+[node name="Area3" type="Area" parent="Enemies/Enemy2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0377195, -0.0611622, 0.00567894 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Enemies/Enemy2/Area3"]
+transform = Transform( 1, 0, 3.55271e-15, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -0.00512505, 0, -0.034029 )
+shape = SubResource( 6 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 0.494428, 0, -0.0744398, 0, 0.5, 0, 0.0744398, 0, 0.494428, -3.68493, -0.113321, -7.74188 )
+
+[node name="Area3" type="Area" parent="Enemies/Enemy3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0377195, -0.0611622, 0.00567894 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Enemies/Enemy3/Area3"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -0.0051234, 0, -0.0340296 )
+shape = SubResource( 6 )
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 0.265478, 0, -0.4237, 0, 0.5, 0, 0.4237, 0, 0.265478, 8.69618, 0, 5.77723 )
+
+[node name="Area3" type="Area" parent="Enemies/Enemy4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0377195, -0.0611622, 0.00567894 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Enemies/Enemy4/Area3"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -0.0051234, 0, -0.0340296 )
+shape = SubResource( 6 )
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 6 )]
+transform = Transform( 0.422337, 0, -0.267641, 0, 0.5, 0, 0.267641, 0, 0.422337, 10.1718, 0, -8.05649 )
+
+[node name="Area3" type="Area" parent="Enemies/Enemy5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0377195, -0.0611622, 0.00567894 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Enemies/Enemy5/Area3"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -0.0051234, 0, -0.0340296 )
+shape = SubResource( 6 )
+
+[node name="Trees" type="Spatial" parent="."]
+
+[node name="tree" parent="Trees" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11682, 0, -9.40872 )
+
+[node name="tree4" parent="Trees" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09234, 0, -9.54294 )
+
+[node name="tree5" parent="Trees" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0304, 0, -2.73271 )
+
+[node name="tree6" parent="Trees" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.20806, 0, -9.46785 )
+
+[node name="tree2" parent="Trees" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0304, 0, 1.57615 )
+
+[node name="tree3" parent="Trees" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0304, 0, -0.508463 )
+
+[node name="Flowerss" type="Spatial" parent="."]
+
+[node name="flowers" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4936, 0.0419748, 10.5961 )
+
+[node name="flowers2" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4936, 0.0419748, 11.0465 )
+
+[node name="flowers4" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8897, 0.0419748, 11.0465 )
+
+[node name="flowers5" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8897, 0.0419748, 10.6786 )
+
+[node name="flowers6" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1728, 0.0419748, 10.6786 )
+
+[node name="flowers7" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1728, 0.0419748, 11.0736 )
+
+[node name="flowers8" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5102, 0.0419748, 11.0736 )
+
+[node name="flowers9" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5102, 0.0419748, 10.7287 )
+
+[node name="flowers10" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5102, 0.0419748, 11.4001 )
+
+[node name="flowers11" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0689, 0.0419748, 11.4001 )
+
+[node name="flowers12" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.736, 0.0419748, 11.4001 )
+
+[node name="flowers13" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5193, 0.0419748, 11.4001 )
+
+[node name="flowers14" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5193, 0.0419748, 11.6072 )
+
+[node name="flowers15" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9063, 0.0419748, 11.6072 )
+
+[node name="flowers16" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2353, 0.0419748, 11.6072 )
+
+[node name="flowers17" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5103, 0.0419748, 11.6072 )
+
+[node name="flowers18" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5103, 0.0419748, 11.8583 )
+
+[node name="flowers19" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3107, 0.0419748, 11.8583 )
+
+[node name="flowers20" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0447, 0.0419748, 11.8583 )
+
+[node name="flowers21" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7127, 0.0419748, 11.8583 )
+
+[node name="flowers22" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5729, 0.0419748, 11.8583 )
+
+[node name="flowers23" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8699, 0.0419748, 11.8583 )
+
+[node name="flowers24" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8699, 0.0419748, 11.5125 )
+
+[node name="flowers25" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8699, 0.0419748, 11.3139 )
+
+[node name="flowers26" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8699, 0.0419748, 11.05 )
+
+[node name="flowers27" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8699, 0.0419748, 10.8424 )
+
+[node name="flowers28" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1083, 0.0419748, 10.8424 )
+
+[node name="flowers29" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1083, 0.0419748, 11.1536 )
+
+[node name="flowers30" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1083, 0.0419748, 11.4289 )
+
+[node name="flowers31" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1083, 0.0419748, 11.8737 )
+
+[node name="flowers32" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, -12.3645, 0.0419748, 11.8737 )
+
+[node name="flowers33" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3749, 0.0419748, 11.6696 )
+
+[node name="flowers34" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3749, 0.0419748, 11.3975 )
+
+[node name="flowers35" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3749, 0.0419748, 11.1007 )
+
+[node name="flowers36" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3749, 0.0419748, 11.0126 )
+
+[node name="flowers3" parent="Flowerss" instance=ExtResource( 14 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -10.4936, 0.0419748, 10.8584 )
+[connection signal="CoinCollected" from="Coins/CoinGold" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold2" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold3" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold4" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold5" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold6" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold7" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold8" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold9" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold10" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold11" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold12" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold13" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold14" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold15" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold16" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold17" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold18" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold19" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold20" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold21" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold22" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold23" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold24" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold25" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold26" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinGold27" to="Control/Counter" method="_on_CoinGold_CoinCollected"]
+[connection signal="timeout" from="Control/Counter/Timer" to="Control/Counter" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Enemies/Enemy/Area3" to="007" method="_on_Area3_body_entered"]
+[connection signal="body_entered" from="Enemies/Enemy2/Area3" to="007" method="_on_Area3_body_entered"]
+[connection signal="body_entered" from="Enemies/Enemy3/Area3" to="007" method="_on_Area3_body_entered"]
+[connection signal="body_entered" from="Enemies/Enemy4/Area3" to="007" method="_on_Area3_body_entered"]
+[connection signal="body_entered" from="Enemies/Enemy5/Area3" to="007" method="_on_Area3_body_entered"]

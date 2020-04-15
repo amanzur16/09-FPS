@@ -1,6 +1,5 @@
 extends KinematicBody
 
-
 var health = 200
 var target 
 export var speed = 150
@@ -24,7 +23,7 @@ func _process(delta):
 
 func _on_Area_body_entered(body):
 	if body.is_in_group("Player"):
-		target = body
+		target = null
 	print(body.name + " entered")
 	
 	

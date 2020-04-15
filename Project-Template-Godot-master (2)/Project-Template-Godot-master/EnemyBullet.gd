@@ -1,5 +1,6 @@
 extends Area
 
+var damage = 40
 var speed = 15 
 var velocity = Vector3()
 
@@ -17,7 +18,11 @@ func _on_Timer_timeout():
 	queue_free()
 
 
-func _on_Bullet_body_entered(body):
+func _on_EnemyBullet_body_entered(body):
 	if body is StaticBody:
 		queue_free()
+	if body.name == "Player":
+		body.take_damage(damage)
+		queue_free()
+
 

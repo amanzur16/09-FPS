@@ -3,6 +3,7 @@ extends KinematicBody
 var Bullet = preload("res://Bullet.tscn")
 onready var camera = $Pivot/Camera
 
+var damage = 40
 var gravity = -20
 var jump_speed = 6
 var max_speed = 5
@@ -35,10 +36,15 @@ func _unhandled_input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$Pivot.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
+	
 	if event.is_action_pressed("shoot"):
 		var b = Bullet.instance()
 		b.start($Position3D.global_transform)
 		get_parent().add_child(b)
+		
+
+			
+		
 		
 
 		
@@ -51,3 +57,15 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector3.UP, true)
 	if jump and is_on_floor():
 		velocity.y = jump_speed
+
+
+
+
+
+
+func _on_Area3_body_entered(body):
+	if body.name == "007":
+		get_tree().change_scene("res://gameover.tscn")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	

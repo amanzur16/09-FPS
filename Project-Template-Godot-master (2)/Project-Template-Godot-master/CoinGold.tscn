@@ -35,7 +35,7 @@ surfaces/1 = {
 radius = 0.194048
 height = 0.100535
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Spin"
 loop = true
 tracks/0/type = "value"
@@ -51,8 +51,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 180, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "spin"
+[sub_resource type="Animation" id=4]
 loop = true
 
 [node name="CoinGold" type="Area"]
@@ -74,6 +73,6 @@ shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Spin"
-anims/Spin = SubResource( 4 )
-anims/spin = SubResource( 3 )
+anims/Spin = SubResource( 3 )
+anims/spin = SubResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_CoinGold_body_entered"]
